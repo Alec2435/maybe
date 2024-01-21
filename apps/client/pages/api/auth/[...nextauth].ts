@@ -139,6 +139,69 @@ export const authOptions = {
             return session
         },
     },
+    cookies: {
+        sessionToken: {
+            name: `next-auth.session-token`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                domain: '.railway.app',
+            },
+        },
+        /*         sessionToken2: {
+            name: `next-auth.session-token`,
+            options: {
+                httpOnly: true,
+                sameSite: "lax",
+                path: "/",
+            },
+        }, */
+        callbackUrl: {
+            name: `next-auth.callback-url`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+            },
+        },
+        csrfToken: {
+            // Default to __Host- for CSRF token for additional protection if using useSecureCookies
+            // NB: The `__Host-` prefix is stricter than the `__Secure-` prefix.
+            name: `next-auth.csrf-token`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+            },
+        },
+        pkceCodeVerifier: {
+            name: `next-auth.pkce.code_verifier`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                maxAge: 60 * 15, // 15 minutes in seconds
+            },
+        },
+        state: {
+            name: `next-auth.state`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                maxAge: 60 * 15, // 15 minutes in seconds
+            },
+        },
+        nonce: {
+            name: `next-auth.nonce`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+            },
+        },
+    },
 } as NextAuthOptions
 
 export default NextAuth(authOptions)
