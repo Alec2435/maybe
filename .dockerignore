@@ -1,5 +1,0 @@
-# Ignores everything except dist/ prisma/ apps/ and yarn.lock
-*
-!dist/
-!prisma/
-!yarn.lock
